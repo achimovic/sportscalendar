@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block siteclass %}calendar{% endblock %}
+
+{% block body %}
+    <h1>{{ year }}</h1>
+
+    <table class="table table-dark">
+        <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Event</th>
+            <th scope="col">Sport</th>
+            <th scope="col">Teams/Athletes</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for event in events %}
+            {% include 'calendar/eventListItem.html.twig' %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

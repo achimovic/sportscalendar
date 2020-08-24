@@ -1,0 +1,17 @@
+<tr>
+    <th scope="row">{{ event.start|date("d.m.Y H:i") }}</th>
+    <td>{{ event.title }}</td>
+    <td>{{ event.sport }}</td>
+    <td>
+        <p>
+            {% for team in event.teams %}
+                {{ team.name ~ (not loop.last ? ', ') }}
+            {% endfor %}
+        </p>
+        <p>
+            {% for athlete in event.athletes %}
+                {{ athlete.name ~ (not loop.last ? ', ') }}
+            {% endfor %}
+        </p>
+    </td>
+</tr>
