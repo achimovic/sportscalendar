@@ -36,26 +36,40 @@ class Event
 
     /**
      * @ORM\ManyToMany(targetEntity=Calendar::class, inversedBy="events")
+     * @ORM\JoinTable(name="event_calendar",
+     *     joinColumns={@ORM\JoinColumn(name="_event", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="_calendar", referencedColumnName="id")}
+     * )
      */
     private $calendars;
 
     /**
      * @ORM\ManyToOne(targetEntity=League::class, inversedBy="events")
+     * @ORM\JoinColumn(name="_league", referencedColumnName="id")
      */
     private $league;
 
     /**
      * @ORM\ManyToOne(targetEntity=Sport::class, inversedBy="events")
+     * @ORM\JoinColumn(name="_sport", referencedColumnName="id")
      */
     private $sport;
 
     /**
      * @ORM\ManyToMany(targetEntity=Team::class, inversedBy="events")
+     * @ORM\JoinTable(name="event_team",
+     *     joinColumns={@ORM\JoinColumn(name="_event", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="_team", referencedColumnName="id")}
+     * )
      */
     private $teams;
 
     /**
      * @ORM\ManyToMany(targetEntity=Athlete::class, inversedBy="events")
+     * @ORM\JoinTable(name="event_athlete",
+     *     joinColumns={@ORM\JoinColumn(name="_event", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="_athlete", referencedColumnName="id")}
+     * )
      */
     private $athletes;
 
