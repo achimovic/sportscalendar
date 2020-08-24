@@ -1,11 +1,11 @@
 {% set base_teaser = 'Finding all sports events worldwide' %}
 {% set sitename = 'Sports Calendar' %}
-{% set base_title = sitename ~ ' All Sports Events' %}
+{% set base_title = sitename ~ ' | All Sports Events' %}
 
 {% if title is not defined or title == '' %}
     {% set title = base_title %}
 {% else %}
-    {% set title = title ~ ' ' ~ sitename %}
+    {% set title = title ~ ' | ' ~ sitename %}
 {% endif %}
 
 {% if teaser is not defined or teaser == '' %}

@@ -1,3 +1,16 @@
 // basic definitions
 
+main {
+  padding-top: 70px;
+
+  @include media-breakpoint-up(sm) {
+    padding-top: 90px;
+  }
+}
+
+button:focus {
+  outline: none;
+}
+
+
 @import "custom";
