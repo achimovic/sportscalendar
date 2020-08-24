@@ -1,11 +1,14 @@
+{% set title = 'Calendar ' ~ name ~ ' ' ~ year %}
+{% set h1 = title %}
+
 {% extends 'base.html.twig' %}
 
 {% block siteclass %}calendar{% endblock %}
 
 {% block body %}
-    <h1>{{ year }}</h1>
+    <h1>{{ h1 }}</h1>
 
-    <table class="table table-dark">
+    <table class="table table-dark table-striped">
         <thead>
         <tr>
             <th scope="col">Date</th>

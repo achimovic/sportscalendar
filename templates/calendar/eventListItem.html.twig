@@ -5,12 +5,12 @@
     <td>
         <p>
             {% for team in event.teams %}
-                {{ team.name ~ (not loop.last ? ', ') }}
+                {{ team.name ~ (not loop.last ? ' - ') }}
             {% endfor %}
         </p>
         <p>
             {% for athlete in event.athletes %}
-                {{ athlete.name ~ (not loop.last ? ', ') }}
+                {{ athlete.name ~ (not loop.last ? ' - ') }}
             {% endfor %}
         </p>
     </td>

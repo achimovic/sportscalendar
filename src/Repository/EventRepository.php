@@ -19,6 +19,33 @@ class EventRepository extends ServiceEntityRepository
         parent::__construct($registry, Event::class);
     }
 
+    /**
+     * @param int $year
+     * @param string $calendarTitle
+     * @return Event[]
+     */
+    public function findByYearAndCalendar($year, $calendarTitle)
+    {
+        return $this->createQueryBuilder('e')
+            ->select('Event, Team, Athlete')
+            ->from(Event::class, 'Event')
+            ->join('Event.calendars', 'Calendar')
+            ->leftJoin('Event.teams', 'Team')
+            ->leftJoin('Event.athletes', 'Athlete')
+            ->leftJoin('Event.sport', 'Sport')
+            ->leftJoin('Event.league', 'League')
+            ->andWhere('Event.start >= :start')
+            ->andWhere('Event.start < :end')
+            ->andWhere('Calendar.name = :calendar')
+            ->setParameter('start', new \DateTime($year . '-01-01 00:00:00'))
+            ->setParameter('end', new \DateTime($year + 1 . '-01-01 00:00:00'))
+            ->setParameter('calendar', $calendarTitle)
+            ->orderBy('Event.start', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     // /**
     //  * @return Event[] Returns an array of Event objects
     //  */
