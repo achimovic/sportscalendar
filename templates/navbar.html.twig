@@ -1,0 +1,31 @@
+<nav class="navbar navbar-dark fixed-top bg-dark">
+    <div class="container">
+
+        <button class="navbar-toggler search-nav collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapseSearch" aria-controls="navbarCollapseSearch" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-search"></i>
+        </button>
+
+        <a class="navbar-brand" href="/">
+            <img src="{{ asset('build/images/logo-white.svg') }}" />
+        </a>
+
+        <button class="navbar-toggler main-nav collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+        </button>
+        {% block navsearch %}
+            <div class="navbar-collapse collapse" id="navbarCollapseSearch" style="">
+                {% include 'search.html.twig' %}
+            </div>
+        {% endblock %}
+
+        <div class="navbar-collapse main-nav collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li><a href="{{ path('home') }}">News</a></li>
+                <li><a href="">Events</a></li>
+            </ul>
+        </div>
+    </div>
+
+</nav>

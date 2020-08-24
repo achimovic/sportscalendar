@@ -1,12 +1,36 @@
+{% set base_teaser = 'Finding all sports events worldwide' %}
+{% set sitename = 'Sports Calendar' %}
+{% set base_title = sitename ~ ' All Sports Events' %}
+
+{% if title is not defined or title == '' %}
+    {% set title = base_title %}
+{% else %}
+    {% set title = title ~ ' ' ~ sitename %}
+{% endif %}
+
+{% if teaser is not defined or teaser == '' %}
+    {% set teaser = base_teaser %}
+{% endif %}
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <title>{{ title }}</title>
+    {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ teaser }}">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ teaser }}">
+    <meta property="og:site_name" content="{{ sitename }}">
+
+</head>
+<body class="{% block siteclass %}default{% endblock %}">
+{% include 'navbar.html.twig' %}
+<main role="main" class="container">
+    {% block body %}{% endblock %}
+</main>
+{% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
+</body>
 </html>
