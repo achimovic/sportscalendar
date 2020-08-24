@@ -40,6 +40,11 @@ class Team
         $this->athletes = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->name ? $this->name : 'id ' . $this->id;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

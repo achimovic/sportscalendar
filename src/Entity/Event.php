@@ -80,6 +80,11 @@ class Event
         $this->athletes = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +94,33 @@ class Event
     {
         return $this->name;
     }
+
+    public function getTitle(): ?string
+    {
+        if (null === $this->name) {
+            $parts = [];
+            if ($this->getSport()) {
+                $parts[] = $this->getSport()->getName();
+            }
+            if ($this->getLeague()) {
+                $parts[] = $this->getLeague()->getName();
+            }
+            if ($this->getTeams()->count() > 0 && $this->getAthletes()->count() < 4) {
+                foreach ($this->getTeams() as $team) {
+                    $parts[] = $team->getName();
+                }
+            }
+            if ($this->getAthletes()->count() > 0 && $this->getAthletes()->count() < 4) {
+                foreach ($this->getAthletes() as $athlete) {
+                    $parts[] = $athlete->getName();
+                }
+            }
+
+            return implode(' - ', $parts);
+        }
+        return $this->name;
+    }
+
 
     public function setName(?string $name): self
     {
