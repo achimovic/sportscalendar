@@ -1,0 +1,34 @@
+// bootstrap theme definitions
+
+$primary: #d9403f;
+$secondary:     #6280a1;
+$success:       #79b673;
+$danger:        #d97671;
+$light:         #f8f7f4;
+$dark:          #444;
+
+$primary-darker:  darken($primary, 7.5%);
+$primary-dark:    darken($primary, 15%);
+
+$body-color:             $dark;
+$body-bg:                $light;
+$border-color:           $primary;
+$border-radius:          5px;
+$border-width:           2px;
+$input-border-color:     $primary;
+$input-focus-border-color: $primary;
+
+$h3-font-size: 1.5rem;
+
+$font-family-sans-serif: "Open Sans", Arial, sans-serif;
+$headings-font-family:   "Montserrat";
+$headings-font-weight:   700;
+$headings-color:         $primary;
+$link-color:             $primary;
+$font-family-base:       $font-family-sans-serif;
+$font-weight-base:       400;
+$font-weight-bold:       600;
+
+$mg-s: 15px;
+$mg-m: 30px;
+$mg-l: 45px;
