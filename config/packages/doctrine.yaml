@@ -1,5 +1,13 @@
 doctrine:
     dbal:
+        driver: 'mysql'
+        server_version: '8.0'
+
+        # only needed for MySQL
+        charset: utf8mb4
+        default_table_options:
+            charset: utf8mb4
+            collate: utf8mb4_0900_ai_ci
         url: '%env(resolve:DATABASE_URL)%'
 
         # IMPORTANT: You MUST configure your server version,
