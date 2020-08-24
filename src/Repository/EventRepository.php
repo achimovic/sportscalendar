@@ -27,7 +27,7 @@ class EventRepository extends ServiceEntityRepository
     public function findByYearAndCalendar($year, $calendarTitle)
     {
         return $this->createQueryBuilder('e')
-            ->select('Event, Team, Athlete')
+            ->select('Event, Team, Athlete, League, Sport')
             ->from(Event::class, 'Event')
             ->join('Event.calendars', 'Calendar')
             ->leftJoin('Event.teams', 'Team')
